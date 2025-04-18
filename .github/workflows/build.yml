@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - beta
+      - beta-build
       - dev
   pull_request_target:
     branches:
