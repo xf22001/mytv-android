@@ -71,7 +71,7 @@ jobs:
       run: ./gradlew :tv:assembleRelease
     
     - name: Build with Gradle (Dev)
-      if: (github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/dev')
+      if: (github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/beta-build')
       env:
             SENTRY_AUTH_TQOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
             SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -86,7 +86,7 @@ jobs:
         path: tv/build/outputs/apk/release/*.apk
     
     - name: Move Metadata (Dev)
-      if: github.event_name == 'push' && (github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/dev')
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/beta-build')
       run: |
         mv tv/build/outputs/apk/original/debug/output-metadata.json tv/build/outputs/apk/release/output-metadata.json
 
@@ -115,7 +115,7 @@ jobs:
         echo "gitee_repo=mytvstable" >> $GITHUB_ENV
     
     - name: Gen Tag(Beta)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/beta'
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/beta-build')
       run: |
         echo "release_title=V${{ env.info_version_name }} （测试版）" >> $GITHUB_ENV
         echo "gitee_repo=mytvbeta" >> $GITHUB_ENV
@@ -139,7 +139,7 @@ jobs:
         make_latest: true
 
     - name: Publish Pre-Release
-      if: github.event_name == 'push' && (github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/dev')
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/beta-build')
       uses: softprops/action-gh-release@v2
       with:
         files: |
