@@ -104,7 +104,7 @@ fun SettingsIptvSourceScreen(
 
     AppScreen(
         modifier = modifier,
-        header = { Text("设置 / 播放源 / 自定义播放源") },
+        header = { Text("设置 / 订阅源 / 自定义订阅源") },
         headerExtra = {
             AppScaffoldHeaderBtn(
                 title = "刷新全部",
@@ -221,12 +221,14 @@ private fun IptvSourceItem(
             ) {
                 Text(iptvSource.name)
 
-                Tag(
-                    if (iptvSource.isLocal) "本地" else "远程",
-                    colors = TagDefaults.colors(
-                        containerColor = LocalContentColor.current.copy(0.1f)
-                    ),
-                )
+                if (!iptvSource.name.isNullOrEmpty()) {
+                    Tag(
+                        if (iptvSource.isLocal) "本地" else "远程",
+                        colors = TagDefaults.colors(
+                            containerColor = LocalContentColor.current.copy(0.1f)
+                        ),
+                    )
+                }
 
                 if (!iptvSource.transformJs.isNullOrEmpty()) {
                     Tag(

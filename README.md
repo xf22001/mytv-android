@@ -37,7 +37,7 @@
 
 ### 自定义设置
 
-- 访问以下网址：`http://<设备IP>:10481`
+- 访问以下网址：`http://<设备IP>:10591`
 
 ## 下载
 
@@ -54,11 +54,11 @@
 
 2.补全设置中—网络菜单的未开发功能，支持自定义重试时间和重放次数；
 
-3.新增左右手势和遥控器左右按键切换播放源开关，防止老年人误触；
+3.新增左右手势和遥控器左右按键切换订阅源开关，防止老年人误触；
 
 4.新增电视频道的收藏列表的隐藏和显示开关；
 
-5.m3u播放源支持Referer请求头参数http-referer=""；
+5.m3u订阅源支持Referer请求头参数http-referer=""；
 
 6.m3u文件支持混合使用webview://http://xxxx；
 
@@ -71,3 +71,28 @@
 10.新增统一播放音量均衡、响度归一化。
 
 11.m3u直播源文件支持自定义执行js脚本参数，便于播放某些需要点击选择的页面
+
+
+## 信息获取
+
+交流（此群一般不作为反馈bug，提供建议之处，相关内容请发布至issue）和测试版信息发布，都请关注此频道以获取最新改进，以及更新投票计划。
+
+<div align="center">
+    <img src="./img/QRCode.png" width="48%"/>
+</div>
+
+## 星标历史
+
+<a href="https://www.star-history.com/#mytv-android/mytv-android&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=mytv-android/mytv-android&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=mytv-android/mytv-android&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mytv-android/mytv-android&type=Date" />
+ </picture>
+</a>
+
+## 著作权和许可证声明
+
+天光云影使用的MIT许可证请参见[天光云影许可证](./LICENSE_ORIGIN)，当你复制软件代码时，请保留此许可证和原作者版权声明。
+
+本软件使用的GNU许可证请参见[本项目许可证](./LICENSE)，你可以自由地分发和衍生本软件。但当你基于本软件代码进行分发和演绎时，你不能修改许可证；你需要公开修改后的源代码；你也需要保留本软件的相关声明。

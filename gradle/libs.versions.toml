@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.1"
+agp = "8.9.2"
 coil = "2.7.0"
 desugar_jdk_libs = "2.1.5"
 coreKtx = "1.16.0"
@@ -12,19 +12,19 @@ kotlinxCollectionsImmutable = "0.3.8"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 media3 = "1.6.1"
-composeBom = "2025.04.00"
+composeBom = "2025.04.01"
 okhttp = "4.12.0"
 qrose = "1.0.1"
 kotlinx-serialization = "1.8.1"
-ksp = "2.1.20-2.0.0"
+ksp = "2.1.20-2.0.1"
 androidasync = "3.1.0"
-compose-foundation = "1.7.8"
-rhino = "1.8.0"
+compose-foundation = "1.8.0"
 tinypinyin = "2.0.3.RELEASE"
 tvMaterial = "1.1.0-alpha01"
 navigationCompose = "2.8.9"
 android_material = "1.12.0"
-sentry = "5.3.0"
+sentry = "5.5.0"
+quickjs = "1.0.0-alpha13"
 minSdk = "21"
 targetSdk = "35"
 compileSdk = "35"
@@ -67,8 +67,8 @@ androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
-rhino = { module = "org.mozilla:rhino", version.ref = "rhino" }
 tinypinyin = { module = "io.github.biezhi:TinyPinyin", version.ref = "tinypinyin" }
+quickjs-kt = { module = "io.github.dokar3:quickjs-kt", version.ref = "quickjs" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

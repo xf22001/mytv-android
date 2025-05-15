@@ -124,9 +124,13 @@ class SettingsViewModel : ViewModel() {
             afterSetWhenCloudSyncAutoPull()
         }
 
-    private var _iptvSourceList by mutableStateOf(IptvSourceList())
+    private var _iptvSourceList by mutableStateOf(Constants.IPTV_SOURCE_LIST)
     var iptvSourceList: IptvSourceList
-        get() = _iptvSourceList
+        get() = if (_iptvSourceList.isEmpty()) {
+            Constants.IPTV_SOURCE_LIST
+        } else {
+            _iptvSourceList
+        }
         set(value) {
             _iptvSourceList = value
             Configs.iptvSourceList = value
@@ -510,12 +514,21 @@ class SettingsViewModel : ViewModel() {
             afterSetWhenCloudSyncAutoPull()
         }
 
-    private var _videoPlayerLoadTimeout by mutableLongStateOf(0)
+    private var _videoPlayerLoadTimeout by mutableLongStateOf(1000)
     var videoPlayerLoadTimeout: Long
         get() = _videoPlayerLoadTimeout
         set(value) {
             _videoPlayerLoadTimeout = value
             Configs.videoPlayerLoadTimeout = value
+            afterSetWhenCloudSyncAutoPull()
+        }
+
+    private var _videoPlayerBufferTime by mutableLongStateOf(0)
+    var videoPlayerBufferTime: Long
+        get() = _videoPlayerBufferTime
+        set(value) {
+            _videoPlayerBufferTime = value
+            Configs.videoPlayerBufferTime = value
             afterSetWhenCloudSyncAutoPull()
         }
 
@@ -647,7 +660,7 @@ class SettingsViewModel : ViewModel() {
             Configs.cloudSyncNetworkUrl = value
         }
 
-    private var _cloudSyncLocalFilePath by mutableStateOf("")
+    private var _cloudSyncLocalFilePath by mutableStateOf(Constants.DEFAULT_LOCAL_SYNC_FILE_PATH)
     var cloudSyncLocalFilePath: String
         get() = _cloudSyncLocalFilePath
         set(value) {
@@ -761,6 +774,7 @@ class SettingsViewModel : ViewModel() {
         _videoPlayerUserAgent = Configs.videoPlayerUserAgent
         _videoPlayerHeaders = Configs.videoPlayerHeaders
         _videoPlayerLoadTimeout = Configs.videoPlayerLoadTimeout
+        _videoPlayerBufferTime = Configs.videoPlayerBufferTime
         _videoPlayerDisplayMode = Configs.videoPlayerDisplayMode
         _videoPlayerForceSoftDecode = Configs.videoPlayerForceSoftDecode
         _videoPlayerStopPreviousMediaItem = Configs.videoPlayerStopPreviousMediaItem

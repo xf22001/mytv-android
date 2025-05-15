@@ -23,7 +23,7 @@ android {
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = "${System.getenv("VERSION_CODE")}".toInt()
-        versionName = "1.1.0.${System.getenv("VERSION_CODE")}"//.${System.getenv("COMMIT_HASH")}"
+        versionName = "1.1.1.${System.getenv("VERSION_CODE")}"//.${System.getenv("COMMIT_HASH")}"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -42,7 +42,7 @@ android {
             signingConfig = signingConfigs.getByName("release")
 
             ndk {
-                abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
+                abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86"))
             }
         }
         debug{
@@ -53,16 +53,10 @@ android {
             )
             signingConfig = signingConfigs.getByName("release")
             ndk {
-                abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
+                abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86"))
             }
         }
     }
-
-    // sourceSets {
-    //     getByName("main") {
-    //         jniLibs.srcDirs("jniLibs")
-    //     }
-    // }
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
@@ -97,15 +91,6 @@ android {
         }
     }
 
-    // splits {
-    //     abi {
-    //         isEnable = true
-    //         isUniversalApk = false
-    //         reset()
-    //         // noinspection ChromeOsAbiSupport
-    //         include("arm64-v8a")
-    //     }
-    // }
 }
 
 dependencies {
@@ -142,9 +127,6 @@ dependencies {
     implementation(libs.androidx.media3.common)
     implementation(libs.androidx.media3.datasource.rtmp)
     implementation(libs.androidx.media3.exoplayer.smoothstreaming)
-
-    // implementation("com.github.CarGuo.GSYVideoPlayer:gsyvideoplayer-java:v10.1.0")
-    // implementation("com.github.CarGuo.GSYVideoPlayer:gsyvideoplayer-ex_so:v10.1.0")
 
     // 二维码
     implementation(libs.qrose)
