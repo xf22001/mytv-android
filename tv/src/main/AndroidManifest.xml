@@ -41,7 +41,6 @@
         android:hardwareAccelerated="true" 
         android:largeHeap = "true"
         android:directBootAware= "false"
-        android:defaultToDeviceProtectedStorage= "false"
         tools:targetApi="n">
         <activity
             android:name=".MainActivity"
