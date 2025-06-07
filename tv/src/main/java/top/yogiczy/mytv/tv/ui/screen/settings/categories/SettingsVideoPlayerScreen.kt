@@ -93,6 +93,20 @@ fun SettingsVideoPlayerScreen(
             )
         }
 
+        item{
+            SettingsListItem(
+                headlineContent = "支持 Media TS 高复杂度解析",
+                supportingContent = "支持在某些设备上使用 Media3 播放缺少 AUD 或 IDR 关键帧的 MPEG-TS 文件，启用该选项可能导致意外错误",
+                trailingContent = {
+                    Switch(settingsViewModel.videoPlayerSupportTSHighProfile, null)
+                },
+                onSelect = {
+                    settingsViewModel.videoPlayerSupportTSHighProfile =
+                        !settingsViewModel.videoPlayerSupportTSHighProfile
+                },
+            )
+        }
+
         item {
             SettingsListItem(
                 headlineContent = "全局显示模式",
@@ -124,7 +138,7 @@ fun SettingsVideoPlayerScreen(
         item {
             SettingsListItem(
                 headlineContent = "播放缓冲",
-                supportingContent = "对于Media3，为播放前的最小缓存加载时间（秒）。对于Ijk，为播放前的最小缓存加载帧（f）。",
+                supportingContent = "对于Media3，为播放前的最小缓存加载时间（秒）\n对于Ijk，为播放前的最小缓存加载帧（f）",
                 trailingContent = settingsViewModel.videoPlayerBufferTime.humanizeBufferNum(),
                 onSelect = toVideoPlayerBufferTimeScreen,
                 link = true,
@@ -153,7 +167,7 @@ fun SettingsVideoPlayerScreen(
         // item {
         //     SettingsListItem(
         //         headlineContent = "音量平衡",
-        //         supportingContent = "启用后，将统一均衡输出播放音量，解决直播源音量大小不一致的情况；仅支持Media3播放器",
+        //         supportingContent = "启用后，将统一均衡输出播放音量，解决订阅源音量大小不一致的情况；仅支持Media3播放器",
         //         trailingContent = {
         //             Switch(settingsViewModel.videoPlayerVolumeNormalization, null)
         //         },
